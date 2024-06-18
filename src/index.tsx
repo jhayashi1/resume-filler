@@ -1,10 +1,9 @@
-/*global chrome*/
 import React from 'react';
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom/client';
+import { Main } from './components/main';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-      <div>Hello world</div>
-      <text>Hello</text>
-    </React.StrictMode>,
-  )
+        <Main />
+    </React.StrictMode>
+);

@@ -1,5 +1,5 @@
 {
-    "extends": "next/core-web-vitals",
+    "extends": "react-app",
     "env": {
         "browser": true,
         "commonjs": true,
@@ -18,7 +18,14 @@
             "error",
             "always"
         ],
-        "comma-dangle": "error",
-        "indent":"error"
-    }
+        "comma-dangle": ["error", {
+            "arrays": "never",
+            "imports": "never",
+            "exports": "never",
+            "functions": "never",
+            "objects": "always"
+        }],
+        "indent": "error"
+    },
+    "ignorePatterns": ["dist/*"]
 }

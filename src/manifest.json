@@ -10,7 +10,8 @@
 		"activeTab",
 		"scripting"
 	],
-	"background": {
-		"service_worker": "background.ts"
-	}
+    "content_scripts": [{
+        "js": ["src/content.ts"],
+        "matches": ["<all_urls>"]
+    }]
 }
