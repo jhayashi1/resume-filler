@@ -9,9 +9,5 @@
 	"permissions": [
 		"activeTab",
 		"scripting"
-	],
-    "content_scripts": [{
-        "js": ["src/content.ts"],
-        "matches": ["<all_urls>"]
-    }]
+	]
 }
