@@ -30,7 +30,7 @@ export default [{
             imports: 'never',
             exports: 'never',
             functions: 'never',
-            objects: 'always',
+            objects: 'only-multiline',
         }],
         indent: 'error',
         'quote-props': [

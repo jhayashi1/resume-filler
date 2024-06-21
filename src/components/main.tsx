@@ -1,42 +1,43 @@
 import { useEffect, useState } from 'react';
 import { useAsyncEffect } from '../helpers/use-async-effect';
 import { FIELDS } from '../constants';
+import { getTabContent } from '../helpers/get-tab-content';
 
 export const Main = () => {
-    const [tabContent, setTabContent] = useState(undefined as unknown as Document);
+    const [isLoading, setIsLoading] = useState(true);
+    const [fields, setFields] = useState({});
 
     useAsyncEffect(async () => {
         const content = await getTabContent();
-        setTabContent(content!);
-    }, []);
+        setFields(retrievedFields(content!)!);
+        setIsLoading(false);
+    }, [getTabContent, setIsLoading, setFields]);
 
-    const retrievedFields = () => {
-        const result = {};
-        Object.entries(FIELDS).forEach(([key, value]) => {
+    const retrievedFields = (document: Document) => {
+        const result = {a: 2};
+        Object.entries(FIELDS).map(([key, value]) => {
             // if (Array.isArray(value)) {
             //     value.forEach()
             // }
-            const tabValue = tabContent.querySelector(`[aria-label="${value}"]`);
+            const tabValue = document.querySelector(`[aria-label="${value}"]`);
             result[key] = tabValue;
         });
 
-        return result;
+        return 'result';
     };
 
+    // const yuh = retrievedFields();
+
+    if (isLoading) {
+        return (
+            <div>Loading</div>
+        );
+    }
+
     return (
-        <div>{retrievedFields}</div>
-        // <div>yuh</div>
+        <div>
+            <div>{JSON.stringify(fields)}</div>
+            {/* <div>yuh</div> */}
+        </div>
     );
-};
-
-const getTabContent = async () => {
-    const queryOptions = { active: true, lastFocusedWindow: true, };
-    const [tab] = await chrome.tabs.query(queryOptions);
-    const id = tab.id;
-    const [{result,}] = await chrome.scripting.executeScript({
-        target: {tabId: id!,},
-        func: () => document,
-    });
-
-    return result;
 };

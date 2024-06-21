@@ -1,3 +1,3 @@
-export enum FIELDS {
-    NAV = 'Open global navigation menu'
-}
+export const FIELDS = {
+    NAV: 'Open global navigation menu',
+};
