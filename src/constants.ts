@@ -1,3 +1,4 @@
 export const FIELDS = {
-    NAV: 'Open global navigation menu',
+    IMAGES: 'Search for Images ',
+    GMAIL: 'Gmail ',
 };

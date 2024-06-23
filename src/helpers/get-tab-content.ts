@@ -1,11 +1,11 @@
-export const getTabContent = async () => {
-    const queryOptions = { active: true, lastFocusedWindow: true };
-    const [tab] = await chrome.tabs.query(queryOptions);
-    const id = tab?.id;
-    const [{result}] = await chrome.scripting.executeScript({
-        target: {tabId: id!},
-        func: () => document.documentElement,
-    });
+import { FIELDS } from '../constants';
 
-    return result;
+export const findTabContent = (fields: typeof FIELDS) => {
+    const elements = Object.entries(fields).map(([key, label]) => {
+        if (document.querySelector(`[aria-label="${label}"`)) {
+            return {[key]: label};
+        }
+    });
+    return elements;
 };
+

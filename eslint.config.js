@@ -26,11 +26,11 @@ export default [{
             'always'
         ],
         'comma-dangle': ['error', {
-            arrays: 'only-multiline',
+            arrays: 'always-multiline',
             imports: 'never',
             exports: 'never',
             functions: 'never',
-            objects: 'only-multiline',
+            objects: 'always-multiline',
         }],
         indent: 'error',
         'quote-props': [
