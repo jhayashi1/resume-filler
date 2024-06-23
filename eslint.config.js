@@ -26,7 +26,7 @@ export default [{
             'always'
         ],
         'comma-dangle': ['error', {
-            arrays: 'never',
+            arrays: 'only-multiline',
             imports: 'never',
             exports: 'never',
             functions: 'never',
