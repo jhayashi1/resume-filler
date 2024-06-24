@@ -3,7 +3,7 @@ import { useAsyncEffect } from '../helpers/use-async-effect';
 import { FIELDS } from '../constants';
 import { findTabContent } from '../helpers/get-tab-content';
 import { injectScriptToCurrentTab } from '../helpers/inject-script';
-import { List, ListItemButton, ListItemText } from '@mui/material';
+import { Card, List, ListItemButton, ListItemText, Paper, TextField } from '@mui/material';
 import { DiscoveredFields } from './discovered-fields';
 
 export const Main = () => {
@@ -18,13 +18,15 @@ export const Main = () => {
 
     if (isLoading) {
         return (
-            <div>Loading</div>
+            <Card sx={{flexDirection: 'column', flex: 1}} variant='outlined'>loading</Card>
         );
     }
 
     return (
-        <List>
-            <DiscoveredFields fields={fields} />
-        </List>
+        <Paper sx={{flex: 1}}>
+            <List>
+                <DiscoveredFields fields={fields} />
+            </List>
+        </Paper>
     );
 };

@@ -19,11 +19,11 @@ export default [{
     rules: {
         quotes: [
             'error',
-            'single'
+            'single',
         ],
         semi: [
             'error',
-            'always'
+            'always',
         ],
         'comma-dangle': ['error', {
             arrays: 'always-multiline',
@@ -35,7 +35,7 @@ export default [{
         indent: 'error',
         'quote-props': [
             'error',
-            'as-needed'
+            'as-needed',
         ],
     },
     ignores: ['dist/**'],
